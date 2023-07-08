@@ -9,15 +9,15 @@ const listContacts = async() =>{
 
 }
 
-const getContactById = (contactId) {
+const getContactById = (contactId) => {
   // ...твій код. Повертає об'єкт контакту з таким id. Повертає null, якщо контакт з таким id не знайдений.
 }
 
-const removeContact = (contactId) {
+const removeContact = (contactId) => {
   // ...твій код. Повертає об'єкт видаленого контакту. Повертає null, якщо контакт з таким id не знайдений.
 }
 
-const addContact = (name, email, phone) {
+const addContact = (name, email, phone) => {
   // ...твій код. Повертає об'єкт доданого контакту. 
 }
 
