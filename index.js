@@ -1,5 +1,5 @@
 
-const contacts = require("./contacts.js")
+const contacts = require("./contacts")
 const { Command } = require('commander');
 const program = new Command();
 program
@@ -13,24 +13,25 @@ program.parse(process.argv);
 
 const argv = program.opts();
 
-// TODO: рефакторити
-function invokeAction({ action, id, name, email, phone }) {
+
+const  invokeAction = async({ action, id, name, email, phone }) => {
   switch (action) {
     case 'list':
           const allContacts =  contacts.listContacts();
           return console.table(allContacts);
     
     case 'get':
-      // ... id
-      break;
+          const oneContact = await contacts.getContactById(id);
+          return console.table(oneContact);
 
     case 'add':
-      // ... name email phone
-      break;
-
+          const newContact = await contacts.addContact({ name, email, phone }); 
+          return console.table(newContact);
+    
     case 'remove':
-      // ... id
-      break;
+          const removeContact = await contacts.removeContact(id);
+          return console.table(removeContact);
+     
 
     default:
       console.warn('\x1B[31m Unknown action type!');
