@@ -1,6 +1,6 @@
+const contacts = require("./contacts");
+const { Command } = require("commander");
 
-const contacts = require("./contacts")
-const { Command } = require('commander');
 const program = new Command();
 program
   .option('-a, --action <type>', 'choose action')
@@ -37,5 +37,6 @@ const  invokeAction = async({ action, id, name, email, phone }) => {
       console.warn('\x1B[31m Unknown action type!');
   }
 }
+
 
 invokeAction(argv);
